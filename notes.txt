@@ -1,0 +1,140 @@
+let demo = document.getElementById("demo")
+demo.innerText = "Hello world"
+demo.innerHTML += ` <Br> <img src='https://dummyimage.com/100x100/000/fff'> `
+demo.style.backgroundColor='red'
+demo.style.color='white'
+demo.style.fontSize='50px'
+
+------------------------------------------------------------------------------
+let demo = document.getElementById("demo")
+
+//ul li 
+
+demo.innerHTML=`
+<ul>
+`
+
+let students = ['Danish','Amit','Himanshu','Arpit','Viren']
+
+//{}
+
+for(i=0;i<students.length;i++){
+    
+    demo.innerHTML +=`<li>${students[i]}</li>`
+}
+
+
+
+demo.innerHTML +=`</ul>`
+
+
+---------------------------------------------------------
+
+<div id="demo">
+        <table>
+            <thead>
+                <tr>
+                    <th>S.No.</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+    </div>
+
+let tbody = document.getElementById("tbody")
+
+
+let students = ['Danish', 'Amit', 'Himanshu', 'Arpit', 'Viren']
+for (i = 0; i < students.length; i++) {
+    tbody.innerHTML += `<tr><td>${i+1}</td><td>${students[i]}</td></tr>`
+}
+
+
+-------------------------------------------
+
+ <div id="demo">
+        <table>
+            <thead>
+                <tr>
+                    <th>S.No.</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+let tbody = document.getElementById("tbody")
+
+
+let students = [
+    {name:'Viren',email:'viren@gmail.com'},
+    {name:'Pawan',email:'pawan.kumar@gmail.com'},
+    {name:'Himanshu Sharma',email:'Himanshu@gmail.com'},
+    {name:'Akram',email:'Akram@gmail.com'},
+    {name:'Md Danish',email:'md.danish@gmai.com'}
+]
+for (i = 0; i < students.length; i++) {
+    tbody.innerHTML += `<tr>
+    <td>${i+1}</td>
+    <td>${students[i].name}</td>
+    <td>${students[i].email}</td>
+    </tr>`
+}
+
+-----------------------------
+
+<div id="demo">
+        <table>
+            <thead>
+                <tr>
+                    <th>S.No.</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+    </div>
+    
+
+fetch('https://dummyjson.com/users').then(x=>x.text()).then(y=>displayData(y))
+
+function displayData(user) {
+    console.log(user)
+    user = JSON.parse(user) //convert json to object 
+    /*
+    {
+        "users":[{},{},{}],
+        "length":20
+    }
+    */
+    user = user.users 
+    let tbody = document.getElementById("tbody")
+
+
+
+    for (i = 0; i < user.length; i++) {
+        tbody.innerHTML += `<tr>
+    <td>${i + 1}</td>
+    <td>${user[i].firstName} ${user[i].lastName}</td>
+    <td>${user[i].email}</td>
+    <td><img src="${user[i].image}" style='width:100px'></td>
+    </tr>`
+    }
+
+}
+
+
+'{"name":"rohit","email":"rohit@gmail.com"}' //text format: json
